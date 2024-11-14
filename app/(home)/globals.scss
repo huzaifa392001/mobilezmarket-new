@@ -1,0 +1,57 @@
+@import url("./index.css");
+@import url("../../public/css/fonts.css");
+
+html {
+	font-size: 16px;
+	overflow-x: clip;
+
+	@include respond-to($breakpoint-xl) {
+		font-size: 14px !important; // xl
+	}
+
+	@include respond-to($breakpoint-lg) {
+		font-size: 12px !important; // lg
+	}
+
+	@include respond-to($breakpoint-md) {
+		font-size: 14px !important; // md
+	}
+
+	@include respond-to($breakpoint-sm) {
+		font-size: 13px !important; // sm
+		section {
+			@apply py-6 px-4;
+		}
+	}
+
+	@include respond-to($breakpoint-xs) {
+		font-size: 11px !important; // xs
+	}
+}
+
+body {
+	color: var(--text-color);
+	overflow-x: clip;
+	font-family: var(--font-poppins);
+	// font-family: "Axiforma-regular", sans-serif;
+	@apply bg-[var(--background)];
+	height: 100%;
+	position: relative;
+}
+
+section {
+	padding: 6rem 0;
+}
+
+.wrapper {
+	height: 100%;
+	min-height: 100vh;
+	position: relative;
+}
+nextjs-portal {
+	display: none;
+}
+
+.secHeading {
+	@apply font-bold text-[1.5rem];
+}

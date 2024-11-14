@@ -1,0 +1,58 @@
+.formScreen {
+    @apply absolute inset-0 bg-[var(--white)] z-10;
+    .formContainer {
+        @apply px-4 pt-16;
+    }
+
+    .closeBtn {
+        @apply absolute top-0 w-10 h-10 text-[1.25rem] flex items-center justify-center shadow-xl bg-[var(--white)] border border-[#0002];
+    }
+    .searchCont {
+        @apply w-full;
+        .inputCont {
+            @apply bg-[var(--white)] shadow-lg border border-[#0005] h-[40px] rounded-md overflow-hidden flex items-center gap-x-2 px-2;
+
+            input {
+                @apply h-full w-full text-[var(--text-color)] text-[1.125rem] outline-none bg-transparent border-0;
+            }
+        }
+    }
+
+    .recentSearch {
+        @apply flex items-center justify-between gap-4 flex-wrap px-4 my-6;
+        button {
+            @apply bg-[var(--white)] shadow-lg h-[30px] border border-[#0003] rounded-lg text-[1.125rem];
+
+            width: calc(33.33333% - 1rem);
+        }
+    }
+
+    .suggestedSearch {
+        @apply h-full bg-[#eeeeee] pt-3;
+
+        .headingBox {
+            @apply px-4 mb-4;
+        }
+        ul {
+            li {
+                a {
+                    @apply flex items-center justify-between text-[1.375rem]  px-4;
+                }
+
+                & + li {
+                    @apply border-t-2 border-[var(--white)] mt-3 pt-3;
+                }
+                &:last-child {
+                    @apply border-b-2 pb-3;
+                }
+                &:first-child {
+                    @apply border-t-2 border-[var(--white)] pt-3;
+                }
+            }
+        }
+    }
+
+    .headingBox {
+        @apply w-full;
+    }
+}

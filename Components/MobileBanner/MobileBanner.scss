@@ -1,0 +1,31 @@
+.mobileBanner {
+    @apply bg-[var(--theme-color)] px-5 py-3;
+
+    .logoCont {
+        @apply flex items-center justify-center;
+    }
+    h1 {
+        @apply text-[1.375rem] text-[var(--white)] font-bold mt-2 text-center;
+    }
+
+    .pillsCont {
+        @apply mt-4;
+        .pill {
+            @apply block text-center text-[var(--white)] font-semibold bg-[#3281e3] shadow-2xl rounded-[20px] px-4 py-1;
+
+            &.selected {
+                @apply bg-[var(--white)] text-[var(--theme-color)];
+            }
+        }
+    }
+
+    .searchBar {
+        @apply mt-4;
+        .inputCont {
+            @apply flex items-center gap-x-3 h-[40px] w-full bg-[var(--white)] rounded-md px-3;
+            span {
+                @apply font-normal text-[1.125rem];
+            }
+        }
+    }
+}

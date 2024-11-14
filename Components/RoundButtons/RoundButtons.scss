@@ -1,0 +1,44 @@
+.btnCont {
+    @apply flex gap-4 mt-5;
+
+    &[class*="grid"] {
+        @apply grid;
+    }
+
+    &.grid4 {
+        @apply grid-cols-4;
+    }
+
+    &.slider {
+        @apply block;
+
+        a {
+            .icon {
+                @apply w-20 h-20 overflow-hidden;
+
+                img {
+                    @apply w-3/5 h-3/5 object-contain;
+                }
+            }
+
+            .text {
+                @apply font-semibold mt-2;
+            }
+        }
+    }
+
+    a {
+        @apply text-center;
+        .icon {
+            @apply bg-[var(--white)] aspect-square  shadow-lg flex items-center justify-center mx-auto rounded-full text-[1.375rem] text-[var(--theme-color)];
+
+            &.small {
+                @apply w-16 h-16;
+            }
+        }
+
+        .text {
+            @apply text-[1rem] font-medium mt-1 block;
+        }
+    }
+}
