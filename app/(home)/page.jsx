@@ -34,11 +34,7 @@ export default function Home() {
   useEffect(() => {
     getProducts();
   }, []);
-
-  useEffect(() => {
-    console.log(mobiles);
-  }, [mobiles]);
-
+  
   return (
     <>
       <MobileBanner />

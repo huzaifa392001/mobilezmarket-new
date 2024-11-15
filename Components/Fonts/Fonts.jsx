@@ -3,15 +3,15 @@ import localFont from "next/font/local";
 const poppins = localFont({
   src: [
     {
-      path: "./fonts/poppins-Bold.ttf",
+      path: "./fonts/Poppins-Bold.ttf",
       weight: "700",
     },
     {
-      path: "./fonts/poppins-Medium.ttf",
+      path: "./fonts/Poppins-Medium.ttf",
       weight: "500",
     },
     {
-      path: "./fonts/poppins-Regular.ttf",
+      path: "./fonts/Poppins-Regular.ttf",
       weight: "400",
     },
     {
