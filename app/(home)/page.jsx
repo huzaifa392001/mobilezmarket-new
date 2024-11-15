@@ -1,112 +1,44 @@
+"use client";
 import MobileBanner from "@/Components/MobileBanner/MobileBanner";
+import ProductsSlider from "@/Components/ProductsSlider/ProductsSlider";
 import RoundButtons from "@/Components/RoundButtons/RoundButtons";
+import brands from "@/DummyData/Brands.json";
+import categories from "@/DummyData/Categories.json";
+import { fetchFromApi } from "@/Utils/api";
+import { useEffect, useState } from "react";
 
 export default function Home() {
-  const categories = [
-    {
-      name: "Mobiles",
-      url: "",
-      icon: "fas fa-mobile",
-    },
-    {
-      name: "Tablets",
-      url: "",
-      icon: "fas fa-tablet",
-    },
-    {
-      name: "Watches",
-      url: "",
-      icon: "fas fa-watch-fitness",
-    },
-    {
-      name: "Accessories",
-      url: "",
-      icon: "fas fa-headset",
-    },
-    {
-      name: "Used Devices",
-      url: "",
-      icon: "fas fa-mobile",
-    },
-    {
-      name: "New Devices",
-      url: "",
-      icon: "fas fa-tablet",
-    },
-    {
-      name: "Approved",
-      url: "",
-      icon: "fas fa-watch-fitness",
-    },
-    {
-      name: "Un-Approved",
-      url: "",
-      icon: "fas fa-headset",
-    },
-  ];
+  const [products, setProducts] = useState();
+  const [mobiles, setmobiles] = useState();
+  const [accessories, setaccessories] = useState();
+  const [tablets, settablets] = useState();
+  const [watches, setwatches] = useState();
+  // Fetch products on the server
+  const getProducts = async () => {
+    try {
+      await fetchFromApi("/home-devices").then((res) => {
+        setmobiles(res.mobile_ads);
+        settablets(res.tablet_ads);
+        setwatches(res.watch_ads);
+        setaccessories(res.accessories_ads);
+      });
+    } catch (err) {
+      if (err.response?.status === 429) {
+        setError("Too many requests. Please try again later.");
+      } else {
+        setError("Failed to fetch products. Please try again.");
+      }
+    }
+  };
 
-  const brands = [
-    {
-      name: "apple",
-      url: "",
-      icon: "apple.png",
-    },
-    {
-      name: "Google",
-      url: "",
-      icon: "google.png",
-    },
-    {
-      name: "Honor",
-      url: "",
-      icon: "honor.png",
-    },
-    {
-      name: "Huawei",
-      url: "",
-      icon: "huawei.png",
-    },
-    {
-      name: "Infinix",
-      url: "",
-      icon: "infinix.png",
-    },
-    {
-      name: "itel",
-      url: "",
-      icon: "itel.png",
-    },
-    {
-      name: "OnePlus",
-      url: "",
-      icon: "onePlus.png",
-    },
-    {
-      name: "Oppo",
-      url: "",
-      icon: "oppo.png",
-    },
-    {
-      name: "RealMe",
-      url: "",
-      icon: "realme.png",
-    },
-    {
-      name: "Samsung",
-      url: "",
-      icon: "samsung.png",
-    },
-    {
-      name: "tecno",
-      url: "",
-      icon: "tecno.png",
-    },
-    {
-      name: "vivo",
-      url: "",
-      icon: "vivo.png",
-    },
-  ];
+  useEffect(() => {
+    getProducts();
+  }, []);
+
+  useEffect(() => {
+    console.log(mobiles);
+  }, [mobiles]);
+
   return (
     <>
       <MobileBanner />
@@ -131,6 +63,30 @@ export default function Home() {
           />
         </div>
       </section>
+      <ProductsSlider
+        slidesPerView={2}
+        spaceBetween={10}
+        heading={"Recent Mobile Devices"}
+        data={mobiles}
+      />
+      <ProductsSlider
+        slidesPerView={2}
+        spaceBetween={10}
+        heading={"Recent Tablet Devices"}
+        data={tablets}
+      />
+      <ProductsSlider
+        slidesPerView={2}
+        spaceBetween={10}
+        heading={"Recent Smart Watches"}
+        data={watches}
+      />
+      <ProductsSlider
+        slidesPerView={2}
+        spaceBetween={10}
+        heading={"Recent Accessories"}
+        data={accessories}
+      />
     </>
   );
 }

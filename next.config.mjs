@@ -8,8 +8,10 @@ const nextConfig = {
     },
     images: {
         domains: [
-
-        ]
+            "api.mobilezmarket.com",
+            "lh3.googleusercontent.com",
+            "mobilezmarket.s3.amazonaws.com",
+        ],
     }
 };
 

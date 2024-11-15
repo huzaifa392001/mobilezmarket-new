@@ -1,0 +1,43 @@
+[
+    {
+      "name": "Mobiles",
+      "url": "",
+      "icon": "fas fa-mobile"
+    },
+    {
+      "name": "Tablets",
+      "url": "",
+      "icon": "fas fa-tablet"
+    },
+    {
+      "name": "Watches",
+      "url": "",
+      "icon": "fas fa-watch-fitness"
+    },
+    {
+      "name": "Accessories",
+      "url": "",
+      "icon": "fas fa-headset"
+    },
+    {
+      "name": "Used Devices",
+      "url": "",
+      "icon": "fas fa-mobile"
+    },
+    {
+      "name": "New Devices",
+      "url": "",
+      "icon": "fas fa-tablet"
+    },
+    {
+      "name": "Approved",
+      "url": "",
+      "icon": "fas fa-watch-fitness"
+    },
+    {
+      "name": "Un-Approved",
+      "url": "",
+      "icon": "fas fa-headset"
+    }
+  ]
+  

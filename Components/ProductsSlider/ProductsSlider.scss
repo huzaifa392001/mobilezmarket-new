@@ -1,0 +1,10 @@
+.productSec {
+    @apply pb-0;
+
+    .productSlider {
+        @apply pb-6;
+    }
+
+    & + {
+    }
+}
