@@ -1,12 +1,20 @@
 import React from "react";
 import "./SearchScreen.scss";
-import store from "@/Redux/Store";
-import { SET_SEARCHSCREEN_ACTIVE } from "@/Redux/Slices/Search";
+import {
+  SET_SEARCH_QUERY,
+  SET_SEARCHSCREEN_ACTIVE,
+} from "@/Redux/Slices/Search";
 import Link from "next/link";
+import { useDispatch } from "react-redux";
 
 function SearchScreen() {
+  const dispatch = useDispatch();
   const toggleSearchScreen = () => {
-    store.dispatch(SET_SEARCHSCREEN_ACTIVE(false));
+    dispatch(SET_SEARCHSCREEN_ACTIVE(false));
+  };
+
+  const setSearchQuery = (query) => {
+    dispatch(SET_SEARCH_QUERY(query));
   };
   return (
     <>
@@ -20,7 +28,12 @@ function SearchScreen() {
               <button>
                 <i className="fas fa-search"></i>
               </button>
-              <input placeholder="Serach" type="search" className="input" />
+              <input
+                placeholder="Serach"
+                type="search"
+                onChange={() => setSearchQuery()}
+                className="input"
+              />
             </div>
           </div>
         </div>

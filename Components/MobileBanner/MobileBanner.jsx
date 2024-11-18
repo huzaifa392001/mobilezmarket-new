@@ -1,21 +1,30 @@
 "use client";
 import Image from "next/image";
-import React, { useState } from "react";
-import Link from "next/link";
+import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 // Import Swiper styles
 import "swiper/css";
 import "./MobileBanner.scss";
 import SearchScreen from "../SearchScreen/SearchScreen";
-import { useSelector } from "react-redux";
-import store from "@/Redux/Store";
-import { SET_SEARCHSCREEN_ACTIVE } from "@/Redux/Slices/Search";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  SET_SEARCH_QUERY,
+  SET_SEARCHSCREEN_ACTIVE,
+} from "@/Redux/Slices/Search";
+import { useRouter } from "next/navigation";
 
 function MobileBanner() {
+  const dispatch = useDispatch();
+  const router = useRouter();
   const showSearch = useSelector((state) => state.search.isActive);
 
   const toggleSearchScreen = () => {
-    store.dispatch(SET_SEARCHSCREEN_ACTIVE(true));
+    dispatch(SET_SEARCHSCREEN_ACTIVE(true));
+  };
+
+  const setSearchQuery = (query) => {
+    dispatch(SET_SEARCH_QUERY(query));
+    router.push(`/devices/${query}`);
   };
 
   return (
@@ -31,30 +40,38 @@ function MobileBanner() {
             />
           </div>
           <h1>Top Mobilephone Marketplace in Pakistan</h1>
-          <Swiper
-            className="pillsCont"
-            spaceBetween={10}
-            slidesPerView={2.75}
-          >
+          <Swiper className="pillsCont" spaceBetween={10} slidesPerView={2.75}>
             <SwiperSlide>
-              <Link href={""} className="pill selected">
+              <button
+                onClick={() => setSearchQuery("mobiles")}
+                className="pill selected"
+              >
                 Mobiles
-              </Link>
+              </button>
             </SwiperSlide>
             <SwiperSlide>
-              <Link href={""} className="pill">
+              <button
+                onClick={() => setSearchQuery("tablets")}
+                className="pill"
+              >
                 Tablets
-              </Link>
+              </button>
             </SwiperSlide>
             <SwiperSlide>
-              <Link href={""} className="pill">
+              <button
+                onClick={() => setSearchQuery("watches")}
+                className="pill"
+              >
                 Watches
-              </Link>
+              </button>
             </SwiperSlide>
             <SwiperSlide>
-              <Link href={""} className="pill">
+              <button
+                onClick={() => setSearchQuery("accessories")}
+                className="pill"
+              >
                 Accessories
-              </Link>
+              </button>
             </SwiperSlide>
           </Swiper>
           <div className="searchBar">

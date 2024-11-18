@@ -11,11 +11,11 @@
     .pillsCont {
         @apply mt-4;
         .pill {
-            @apply block text-center text-[var(--white)] font-semibold bg-[#3281e3] shadow-2xl rounded-[20px] px-4 py-1;
+            @apply block text-center text-[var(--white)] font-semibold bg-[#3281e3] shadow-2xl rounded-[20px] px-4 py-1 w-full;
 
-            &.selected {
-                @apply bg-[var(--white)] text-[var(--theme-color)];
-            }
+            // &.selected {
+            //     @apply bg-[var(--white)] text-[var(--theme-color)];
+            // }
         }
     }
 

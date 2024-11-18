@@ -1,5 +1,5 @@
 .productCard {
-    @apply bg-[var(--white)] shadow-md rounded-lg overflow-hidden p-2;
+    @apply bg-[var(--white)] shadow-md rounded-lg overflow-hidden p-2 w-full text-left;
     // box-shadow: 0 0 15px 5px #0002;
     .productImg {
         @apply h-[200px] w-full overflow-hidden rounded-lg;

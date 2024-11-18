@@ -1,18 +1,24 @@
 "use client";
 import Link from "next/link";
-import React, { useState } from "react";
+import React from "react";
 import "./HomeMenu.scss";
 import Image from "next/image";
+import { useDispatch, useSelector } from "react-redux";
+import { SET_DOWNLOAD_POPUP_STATE } from "@/Redux/Slices/General";
 
 function HomeMenu() {
-  const [showBanner, setShowBanner] = useState(true);
+  const dispatch = useDispatch();
+  const showBanner = useSelector((state) => state.general.downloadPopup);
+  const setShowBanner = (state) => {
+    dispatch(SET_DOWNLOAD_POPUP_STATE(state));
+  };
   return (
     <>
       <header>
         <nav>
           <ul>
             <li>
-              <Link href="">
+              <Link href="/">
                 <i className="fas fa-home"></i>
                 <span>Home</span>
               </Link>

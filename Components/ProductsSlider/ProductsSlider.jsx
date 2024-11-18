@@ -5,7 +5,6 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import ProductCard from "../ProductCard/ProductCard";
 
 function ProductsSlider(props) {
-  console.log("Mobiles => ", props?.data);
   return (
     <section className="productSec">
       <div className="container">

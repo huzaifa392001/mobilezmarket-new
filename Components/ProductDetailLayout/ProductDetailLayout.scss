@@ -1,0 +1,78 @@
+.productDetailSec {
+    @apply p-0 min-h-screen bg-[var(--white)];
+    .container {
+        @apply min-h-screen;
+    }
+    .imgCont {
+        @apply relative;
+        .backBtn {
+            @apply absolute top-0 left-0 z-10 text-[var(--white)] w-[50px] h-[50px] flex items-center justify-center text-[1.5rem];
+        }
+        .swiper-slide {
+            @apply h-[400px] overflow-hidden w-full;
+            img {
+                @apply w-full h-full object-cover;
+            }
+        }
+
+        .swiper-pagination {
+            @apply bottom-10;
+
+            .swiper-pagination-bullet {
+                @apply bg-transparent border border-[var(--white)] opacity-100 w-3 h-3;
+                &.swiper-pagination-bullet-active {
+                    @apply bg-[var(--white)];
+                }
+            }
+        }
+    }
+    .content {
+        @apply bg-[var(--white)] -mt-8 relative z-10 rounded-t-[30px] h-full pt-5 px-4;
+
+        h1 {
+            @apply text-[2rem] font-bold text-[var(--text-color)] mb-3;
+        }
+
+        .priceCont {
+            @apply flex items-center justify-between;
+            .price {
+                @apply text-[var(--theme-color)] font-semibold text-[1.5rem];
+            }
+            h4:not(.price) {
+                @apply text-red-500 font-semibold text-[1.25rem];
+                &.green {
+                    @apply text-green-500;
+                }
+            }
+        }
+
+        .location {
+            @apply flex items-center gap-x-2 mt-1 text-[1.25rem] font-semibold;
+            i {
+                @apply text-[var(--secondary-color)];
+            }
+        }
+
+        .details {
+            @apply mt-3;
+            .detailRow {
+                @apply flex items-center justify-between;
+                span {
+                    @apply text-[1.25rem] text-[var(--text-color)] block py-2;
+
+                    &:last-child {
+                        @apply font-semibold;
+                    }
+                }
+
+                + .detailRow {
+                    @apply border-t border-[var(--text-color)];
+                }
+
+                &:last-child {
+                    @apply border-b;
+                }
+            }
+        }
+    }
+}

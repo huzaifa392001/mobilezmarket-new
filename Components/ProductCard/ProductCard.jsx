@@ -2,10 +2,28 @@ import React from "react";
 import "./ProductCard.scss";
 import Image from "next/image";
 import { formatDate, numberWithCommas } from "@/Utils/Utils";
+import { fetchFromApi } from "@/Utils/api";
+import { useDispatch } from "react-redux";
+import { SET_REQUESTED_PRODUCT } from "@/Redux/Slices/Search";
+import { useRouter } from "next/navigation";
+import Link from "next/link";
 
 function ProductCard({ product }) {
+  const dispatch = useDispatch();
+  const router = useRouter();
+  const searchProduct = async (id, slug) => {
+    await fetchFromApi(`/details/${id}/${slug}`).then((res) => {
+      dispatch(SET_REQUESTED_PRODUCT(res.details));
+      router.push(`/product/${id}/${slug}`);
+    });
+  };
   return (
-    <div className="productCard">
+    <Link
+      href={{
+        pathname: `/product/${product?.id}/${product?.slug}`,
+      }}
+      className="productCard"
+    >
       <figure className="productImg">
         <Image
           src={product?.image?.thumbnail_url}
@@ -43,9 +61,9 @@ function ProductCard({ product }) {
         <h5>{numberWithCommas(product?.price)} PKR</h5>
         {product?.ram || product?.storage ? (
           <div className="specs">
-            <span>{product?.ram} GB | </span>
+            <span>{product?.ram} GB </span>
             <span>
-              {product?.storage === 1 ? "1 TB" : `${product?.storage} GB`} |{" "}
+              {product?.storage === 1 ? "1 TB" : `${product?.storage} GB`}
             </span>
             <span>{product?.pta_status}</span>
           </div>
@@ -54,15 +72,15 @@ function ProductCard({ product }) {
         )}
         <span className="time">{formatDate(product.created_at)}</span>
         <span className="location">
-          <i class="fas fa-map-marker-alt"></i>
+          <i className="fas fa-map-marker-alt"></i>
           <span>
             {product?.user?.city && product?.user?.city !== "null"
               ? product?.user?.city
-              : product?.user?.area}
+              : product?.user?.area || "Not Available"}
           </span>
         </span>
       </div>
-    </div>
+    </Link>
   );
 }
 

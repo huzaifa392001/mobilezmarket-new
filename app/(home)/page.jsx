@@ -23,11 +23,11 @@ export default function Home() {
         setaccessories(res.accessories_ads);
       });
     } catch (err) {
-      if (err.response?.status === 429) {
-        setError("Too many requests. Please try again later.");
-      } else {
-        setError("Failed to fetch products. Please try again.");
-      }
+      // if (err.response?.status === 429) {
+      //   setError("Too many requests. Please try again later.");
+      // } else {
+      //   setError("Failed to fetch products. Please try again.");
+      // }
     }
   };
 
@@ -35,7 +35,7 @@ export default function Home() {
     getProducts();
   }, []);
   
-  return (
+  return (  
     <>
       <MobileBanner />
       <section className="categoriesSec">
