@@ -1,5 +1,5 @@
 .mobileBanner {
-    @apply bg-[var(--theme-color)] px-5 py-3;
+    @apply bg-[var(--theme-color)] px-5 py-3 lg:bg-[var(--secondary-color)];
 
     .logoCont {
         @apply flex items-center justify-center;

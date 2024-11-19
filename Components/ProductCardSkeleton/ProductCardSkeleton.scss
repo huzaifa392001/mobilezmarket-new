@@ -1,0 +1,16 @@
+.productCardSkeleton {
+    @apply bg-[var(--white)] shadow-md rounded-lg overflow-hidden p-2 w-full text-left block;
+    .imgCont {
+        @apply h-[200px] w-full overflow-hidden rounded-lg bg-[var(--grey-color)] animate-pulse;
+    }
+    .content {
+        @apply pt-2;
+        .line {
+            @apply h-4 block bg-[var(--grey-color)] w-full rounded-lg animate-pulse;
+
+            & + .line {
+                @apply mt-2;
+            }
+        }
+    }
+}

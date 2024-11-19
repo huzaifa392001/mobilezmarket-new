@@ -1,5 +1,5 @@
 .productCard {
-    @apply bg-[var(--white)] shadow-md rounded-lg overflow-hidden p-2 w-full text-left;
+    @apply bg-[var(--white)] shadow-md rounded-lg overflow-hidden p-2 w-full text-left block;
     // box-shadow: 0 0 15px 5px #0002;
     .productImg {
         @apply h-[200px] w-full overflow-hidden rounded-lg;
@@ -10,11 +10,7 @@
     .content {
         @apply pt-2;
         h3 {
-            @apply text-[1.25rem] font-bold text-[var(--black)];
-            display: -webkit-box;
-            -webkit-line-clamp: 1;
-            -webkit-box-orient: vertical;
-            overflow: hidden;
+            @apply text-[1.25rem] font-bold text-[var(--black)] line-clamp-1;
         }
         h5 {
             @apply text-[1.125rem] text-[var(--theme-color)] font-semibold;
@@ -22,7 +18,7 @@
         .specs {
             @apply flex items-center gap-x-2;
             span {
-                @apply font-semibold relative text-[0.875rem];
+                @apply font-semibold relative text-[0.75rem];
                 &:not(:first-child)::before {
                     content: "";
                     @apply absolute w-[1px] h-full bg-[var(--text-color)] -left-1;

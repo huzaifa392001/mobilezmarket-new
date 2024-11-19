@@ -39,7 +39,7 @@ function MobileBanner() {
               alt="Website Logo"
             />
           </div>
-          <h1>Top Mobilephone Marketplace in Pakistan</h1>
+          <h1>Mobilephone Marketplace in Pakistan</h1>
           <Swiper className="pillsCont" spaceBetween={10} slidesPerView={2.75}>
             <SwiperSlide>
               <button

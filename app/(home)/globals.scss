@@ -34,7 +34,7 @@ body {
 	overflow-x: clip;
 	font-family: var(--font-poppins);
 	// font-family: "Axiforma-regular", sans-serif;
-	@apply bg-[var(--background)] pb-24;
+	@apply bg-[var(--background)] pb-[70px];
 	height: 100%;
 	position: relative;
 }

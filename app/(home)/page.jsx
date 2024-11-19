@@ -34,8 +34,8 @@ export default function Home() {
   useEffect(() => {
     getProducts();
   }, []);
-  
-  return (  
+
+  return (
     <>
       <MobileBanner />
       <section className="categoriesSec">
@@ -59,30 +59,46 @@ export default function Home() {
           />
         </div>
       </section>
-      <ProductsSlider
-        slidesPerView={2}
-        spaceBetween={10}
-        heading={"Recent Mobile Devices"}
-        data={mobiles}
-      />
-      <ProductsSlider
-        slidesPerView={2}
-        spaceBetween={10}
-        heading={"Recent Tablet Devices"}
-        data={tablets}
-      />
-      <ProductsSlider
-        slidesPerView={2}
-        spaceBetween={10}
-        heading={"Recent Smart Watches"}
-        data={watches}
-      />
-      <ProductsSlider
-        slidesPerView={2}
-        spaceBetween={10}
-        heading={"Recent Accessories"}
-        data={accessories}
-      />
+      <section className="productSec">
+        <div className="container mx-auto">
+          <ProductsSlider
+            slidesPerView={2}
+            spaceBetween={10}
+            heading={"Recent Mobile Devices"}
+            data={mobiles}
+          />
+        </div>
+      </section>
+      <section className="productSec">
+        <div className="container mx-auto">
+          <ProductsSlider
+            slidesPerView={2}
+            spaceBetween={10}
+            heading={"Recent Tablet Devices"}
+            data={tablets}
+          />
+        </div>
+      </section>
+      <section className="productSec">
+        <div className="container mx-auto">
+          <ProductsSlider
+            slidesPerView={2}
+            spaceBetween={10}
+            heading={"Recent Smart Watches"}
+            data={watches}
+          />
+        </div>
+      </section>
+      <section className="productSec">
+        <div className="container mx-auto">
+          <ProductsSlider
+            slidesPerView={2}
+            spaceBetween={10}
+            heading={"Recent Accessories"}
+            data={accessories}
+          />
+        </div>
+      </section>
     </>
   );
 }

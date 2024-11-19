@@ -9,7 +9,7 @@
             @apply absolute top-0 left-0 z-10 text-[var(--white)] w-[50px] h-[50px] flex items-center justify-center text-[1.5rem];
         }
         .swiper-slide {
-            @apply h-[400px] overflow-hidden w-full;
+            @apply h-[50vh] overflow-hidden w-full;
             img {
                 @apply w-full h-full object-cover;
             }
@@ -26,15 +26,22 @@
             }
         }
     }
-    .content {
-        @apply bg-[var(--white)] -mt-8 relative z-10 rounded-t-[30px] h-full pt-5 px-4;
+    .imgSkeleton {
+        @apply h-[50vh] overflow-hidden w-full bg-[var(--grey-color)] animate-pulse;
+    }
+    .prodDetailContent {
+        @apply bg-[var(--white)] -mt-8 relative z-10 rounded-t-[30px] h-full pt-5 px-4 pb-6;
+        box-shadow: 0 -5px 10px #0005;
 
         h1 {
             @apply text-[2rem] font-bold text-[var(--text-color)] mb-3;
+            &.line {
+                @apply h-12;
+            }
         }
 
         .priceCont {
-            @apply flex items-center justify-between;
+            @apply flex items-center justify-between gap-2;
             .price {
                 @apply text-[var(--theme-color)] font-semibold text-[1.5rem];
             }
@@ -58,7 +65,7 @@
             .detailRow {
                 @apply flex items-center justify-between;
                 span {
-                    @apply text-[1.25rem] text-[var(--text-color)] block py-2;
+                    @apply text-[1.25rem] text-[var(--text-color)] block my-3;
 
                     &:last-child {
                         @apply font-semibold;
@@ -75,4 +82,48 @@
             }
         }
     }
+    .description {
+        @apply pt-6;
+        h4 {
+            @apply text-[var(--theme-color)] font-semibold text-[1.5rem];
+        }
+        p {
+            @apply text-[1.125rem];
+        }
+    }
+    .user {
+        @apply py-4;
+        h4 {
+            @apply text-[var(--theme-color)] font-semibold text-[1.5rem];
+        }
+        .userCont {
+            @apply w-[95%] rounded-full bg-[var(--white)] px-6 py-3 mx-auto mt-3 flex items-center gap-4;
+            box-shadow: 0 0 5px 5px #0002;
+
+            .imgCont {
+                @apply rounded-full overflow-hidden w-14 h-14;
+                img {
+                    @apply h-full w-full object-cover;
+                }
+            }
+            .profile {
+                h3 {
+                    @apply font-bold text-[1.25rem];
+                }
+            }
+            i {
+                @apply ml-auto text-[1.5rem];
+            }
+        }
+    }
+    .products {
+        @apply py-4;
+    }
+}
+.line {
+    @apply h-6 block bg-[var(--grey-color)] w-full rounded-lg animate-pulse;
+
+    // & + .line {
+    //     @apply mt-2;
+    // }
 }
